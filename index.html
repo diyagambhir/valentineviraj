@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 <title>Viraj's Valentine 💘</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* APRICOTS FONT IMPORT */
+@font-face {
+  font-family: 'Apricots';
+  src: url('Apricots-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   margin: 0;
@@ -20,21 +27,22 @@ body {
 
 section {
   min-height: 100vh;
-  padding: 120px 20px 80px 20px;
+  padding: 140px 20px 100px 20px;
   position: relative;
 }
 
-/* MAIN TITLE */
+/* FIRST PAGE TITLE */
 h1 {
-  font-family: 'Allura', cursive;
-  font-size: 95px;
+  font-family: 'Apricots', cursive;
+  font-size: 92px;
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #d63384;
 }
 
+/* Other headers */
 h2 {
-  font-size: 40px;
+  font-size: 38px;
   margin-bottom: 15px;
 }
 
@@ -66,7 +74,74 @@ button:hover {
   position: relative;
 }
 
-/* LOVE OPTIONS */
+/* GENERAL PHOTO STYLE */
+.photo {
+  position: absolute;
+  border: 6px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  object-fit: cover;
+}
+
+/* ============================= */
+/* FIRST PAGE PHOTOS (LOWER + BIGGER) */
+/* ============================= */
+
+#photo1 {
+  top: 150px;      /* moved lower */
+  left: 60px;
+  width: 260px;
+  height: 340px;
+  border-radius: 140px;
+}
+
+#photo2 {
+  top: 150px;      /* moved lower */
+  right: 60px;
+  width: 260px;
+  height: 340px;
+  border-radius: 140px;
+}
+
+/* ============================= */
+/* SECOND PAGE PHOTOS (SLIGHTLY HIGHER) */
+/* ============================= */
+
+#photo3 {
+  top: 30px;       /* moved slightly up */
+  left: 70px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+}
+
+#photo4 {
+  top: 30px;       /* moved slightly up */
+  right: 70px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+}
+
+/* ============================= */
+/* THIRD PAGE PHOTOS (BIGGER BUT SAFE) */
+/* ============================= */
+
+#photo5 {
+  top: 90px;
+  left: 90px;
+  width: 230px;     /* slightly bigger */
+  height: 260px;    /* slightly longer */
+  border-radius: 120px;
+}
+
+#photo6 {
+  top: 90px;
+  right: 90px;
+  width: 230px;     /* slightly bigger */
+  height: 260px;    /* slightly longer */
+  border-radius: 120px;
+}
+
 .option {
   display: inline-block;
   padding: 16px;
@@ -81,65 +156,6 @@ button:hover {
 
 .correct { background: #8aff8a !important; }
 .wrong { background: #ff8a8a !important; }
-
-/* PHOTOS GENERAL */
-.photo {
-  position: absolute;
-  border: 6px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  object-fit: cover;
-}
-
-/* MAIN SECTION PHOTOS (bigger + oval vertical) */
-#photo1 {
-  top: 80px;
-  left: 40px;
-  width: 240px;
-  height: 320px;
-  border-radius: 120px;
-}
-
-#photo2 {
-  top: 80px;
-  right: 40px;
-  width: 240px;
-  height: 320px;
-  border-radius: 120px;
-}
-
-/* LOVE SECTION PHOTOS */
-#photo3 {
-  top: 60px;
-  left: 60px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
-
-#photo4 {
-  top: 60px;
-  right: 60px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-}
-
-/* GAME SECTION PHOTOS */
-#photo5 {
-  top: 80px;
-  left: 70px;
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-}
-
-#photo6 {
-  top: 80px;
-  right: 70px;
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-}
 
 input {
   padding: 14px;
@@ -165,7 +181,7 @@ input {
 
 <body>
 
-<!-- INTRO SECTION -->
+<!-- FIRST PAGE -->
 <section>
   <img src="viraj.jpg.JPG" class="photo" id="photo1">
   <img src="diya.jpg.JPG" class="photo" id="photo2">
@@ -180,7 +196,7 @@ input {
   </button>
 </section>
 
-<!-- LOVE SECTION -->
+<!-- SECOND PAGE -->
 <section id="loveSection">
   <img src="gang.jpg.png" class="photo" id="photo3">
   <img src="new.jpg.png" class="photo" id="photo4">
@@ -192,30 +208,29 @@ input {
   <h3 id="result"></h3>
 </section>
 
-<!-- GAME SECTION -->
+<!-- THIRD PAGE -->
 <section>
   <img src="him.png.JPG" class="photo" id="photo5">
   <img src="us.jpg.JPG" class="photo" id="photo6">
 
   <h2>Climb To My Heart 💕</h2>
-
   <div id="game"></div>
   <h3 id="finalMessage"></h3>
 </section>
 
 <script>
 
-/* Moving Decline Button */
+/* Decline Button Move */
 const decline = document.getElementById("decline");
 decline.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 60);
   decline.style.position = "absolute";
   decline.style.left = x + "px";
   decline.style.top = y + "px";
 });
 
-/* Heart Cursor Trail */
+/* Heart Cursor */
 document.addEventListener("mousemove", function(e) {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -226,7 +241,8 @@ document.addEventListener("mousemove", function(e) {
   setTimeout(() => heart.remove(), 600);
 });
 
-/* LOVE OPTIONS */
+/* Love Options + Game (unchanged) */
+
 const correctAnswers = [
 "The way he smiles",
 "His biceps",
@@ -268,7 +284,6 @@ options.forEach(text => {
   document.getElementById("options").appendChild(div);
 });
 
-/* CLIMB GAME */
 const levels = [
 {hint:"The first movie we watched together", answer:"SPIDERMAN"},
 {hint:"Our favorite game to compete in", answer:"WORDHUNT"},
