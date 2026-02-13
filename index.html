@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>Viraj's Valentine 💘</title>
 
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Allura&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,23 +18,23 @@ body {
   color: #a6005c;
 }
 
-/* Section sizing */
 section {
-  min-height: 110vh;
-  padding: 80px 20px;
+  min-height: 100vh;
+  padding: 120px 20px 80px 20px;
   position: relative;
 }
 
-/* Typography scale refinement */
+/* MAIN TITLE */
 h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 90px;
+  font-family: 'Allura', cursive;
+  font-size: 95px;
+  font-weight: normal;
   margin-bottom: 20px;
   color: #d63384;
 }
 
 h2 {
-  font-size: 42px;
+  font-size: 40px;
   margin-bottom: 15px;
 }
 
@@ -42,17 +43,17 @@ p {
   opacity: 0.85;
 }
 
-/* Improved Buttons */
+/* BUTTONS */
 button {
-  padding: 16px 36px;
+  padding: 18px 42px;
   font-size: 20px;
   border: none;
-  border-radius: 40px;
+  border-radius: 50px;
   cursor: pointer;
-  margin: 12px;
+  margin: 15px;
   background: linear-gradient(45deg, #ff4da6, #ff1a8c);
   color: white;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
@@ -65,7 +66,7 @@ button:hover {
   position: relative;
 }
 
-/* Love Options */
+/* LOVE OPTIONS */
 .option {
   display: inline-block;
   padding: 16px;
@@ -81,26 +82,64 @@ button:hover {
 .correct { background: #8aff8a !important; }
 .wrong { background: #ff8a8a !important; }
 
-/* Photos */
+/* PHOTOS GENERAL */
 .photo {
   position: absolute;
-  width: 190px;
-  border-radius: 50%;
   border: 6px solid white;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  object-fit: cover;
 }
 
-/* First section photos */
-#photo1 { top: 60px; left: 40px; transform: rotate(-10deg); }
-#photo2 { top: 160px; right: 40px; transform: rotate(10deg); }
+/* MAIN SECTION PHOTOS (bigger + oval vertical) */
+#photo1 {
+  top: 80px;
+  left: 40px;
+  width: 240px;
+  height: 320px;
+  border-radius: 120px;
+}
 
-/* Love section photos */
-#photo3 { top: 50px; left: 50px; transform: rotate(-8deg); }
-#photo4 { top: 150px; right: 50px; transform: rotate(8deg); }
+#photo2 {
+  top: 80px;
+  right: 40px;
+  width: 240px;
+  height: 320px;
+  border-radius: 120px;
+}
 
-/* Game section photos */
-#photo5 { top: 80px; left: 60px; transform: rotate(-6deg); }
-#photo6 { top: 180px; right: 60px; transform: rotate(6deg); }
+/* LOVE SECTION PHOTOS */
+#photo3 {
+  top: 60px;
+  left: 60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+#photo4 {
+  top: 60px;
+  right: 60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+/* GAME SECTION PHOTOS */
+#photo5 {
+  top: 80px;
+  left: 70px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+}
+
+#photo6 {
+  top: 80px;
+  right: 70px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+}
 
 input {
   padding: 14px;
@@ -110,7 +149,7 @@ input {
   font-size: 16px;
 }
 
-/* Heart Cursor Trail */
+/* HEART CURSOR */
 .heart {
   position: absolute;
   pointer-events: none;
@@ -155,8 +194,8 @@ input {
 
 <!-- GAME SECTION -->
 <section>
-  <img src="diya.jpg.JPG" class="photo" id="photo5">
-  <img src="viraj.jpg.JPG" class="photo" id="photo6">
+  <img src="him.png.JPG" class="photo" id="photo5">
+  <img src="us.jpg.JPG" class="photo" id="photo6">
 
   <h2>Climb To My Heart 💕</h2>
 
@@ -169,8 +208,8 @@ input {
 /* Moving Decline Button */
 const decline = document.getElementById("decline");
 decline.addEventListener("mouseover", () => {
-  const x = Math.random() * window.innerWidth;
-  const y = Math.random() * window.innerHeight;
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
   decline.style.position = "absolute";
   decline.style.left = x + "px";
   decline.style.top = y + "px";
@@ -187,8 +226,7 @@ document.addEventListener("mousemove", function(e) {
   setTimeout(() => heart.remove(), 600);
 });
 
-/* --- YOUR ORIGINAL GAME LOGIC BELOW (UNCHANGED) --- */
-
+/* LOVE OPTIONS */
 const correctAnswers = [
 "The way he smiles",
 "His biceps",
@@ -230,6 +268,7 @@ options.forEach(text => {
   document.getElementById("options").appendChild(div);
 });
 
+/* CLIMB GAME */
 const levels = [
 {hint:"The first movie we watched together", answer:"SPIDERMAN"},
 {hint:"Our favorite game to compete in", answer:"WORDHUNT"},
