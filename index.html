@@ -16,16 +16,24 @@ body{
   color:#a6005c;
   overflow-x:hidden;
 }
-
 .section-content{
   max-width:1100px;
   margin:0 auto;
   position:relative;
   padding:120px 20px 100px 20px;
   min-height:100vh;
-  section:first-of-type .section-content{
-  padding-top: 80px;
 }
+
+/* FIRST PAGE ONLY */
+section:first-of-type .section-content{
+  padding-top:60px;   /* moves everything on first page slightly up */
+}
+
+/* MOVE ONLY THE MAIN HEADING UP */
+section:first-of-type h1{
+  margin-top:-40px;   /* moves just the title up */
+}
+
 
 /* ---------- FIRST PAGE ---------- */
 
