@@ -4,176 +4,165 @@
 <meta charset="UTF-8">
 <title>Viraj's Valentine 💘</title>
 
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Parisienne&display=swap" rel="stylesheet">
 
 <style>
 
-/* APRICOTS FONT IMPORT */
-@font-face {
-  font-family: 'Apricots';
-  src: url('Apricots-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+body{
+  margin:0;
+  font-family:'League Spartan',sans-serif;
+  background:linear-gradient(to bottom right,#ffb6d9,#ffcce6);
+  text-align:center;
+  color:#a6005c;
+  overflow-x:hidden;
 }
 
-body {
-  margin: 0;
-  font-family: 'League Spartan', sans-serif;
-  background: linear-gradient(to bottom right, #ffb6d9, #ffcce6);
-  overflow-x: hidden;
-  text-align: center;
-  color: #a6005c;
+.section-content{
+  max-width:1100px;
+  margin:0 auto;
+  position:relative;
+  padding:120px 20px 100px 20px;
+  min-height:100vh;
 }
 
-section {
-  min-height: 100vh;
-  padding: 140px 20px 100px 20px;
-  position: relative;
+/* ---------- FIRST PAGE ---------- */
+
+h1{
+  font-family:'Parisienne',cursive;
+  font-size:96px;
+  font-weight:400;
+  margin-bottom:30px;
+  color:#d63384;
 }
 
-/* FIRST PAGE TITLE */
-h1 {
-  font-family: 'Apricots', cursive;
-  font-size: 92px;
-  font-weight: normal;
-  margin-bottom: 25px;
-  color: #d63384;
+h2{
+  font-size:36px;
+  margin-bottom:12px;
+  font-weight:600;
 }
 
-/* Other headers */
-h2 {
-  font-size: 38px;
-  margin-bottom: 15px;
+p{
+  font-size:18px;
+  opacity:0.85;
 }
 
-p {
-  font-size: 18px;
-  opacity: 0.85;
+/* Buttons */
+
+button{
+  padding:18px 44px;
+  font-size:20px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  margin:15px;
+  background:linear-gradient(45deg,#ff4da6,#ff1a8c);
+  color:white;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  transition:0.3s ease;
 }
 
-/* BUTTONS */
-button {
-  padding: 18px 42px;
-  font-size: 20px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  margin: 15px;
-  background: linear-gradient(45deg, #ff4da6, #ff1a8c);
-  color: white;
-  transition: 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+button:hover{
+  transform:translateY(-3px);
 }
 
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+/* Images */
+
+.photo{
+  position:absolute;
+  border:6px solid white;
+  box-shadow:0 12px 30px rgba(0,0,0,0.25);
+  object-fit:cover;
 }
 
-#decline {
-  position: relative;
+/* FIRST PAGE IMAGES – LOWER + BIGGER */
+
+#p1-left{
+  top:200px;
+  left:-40px;
+  width:280px;
+  height:380px;
+  border-radius:160px;
 }
 
-/* GENERAL PHOTO STYLE */
-.photo {
-  position: absolute;
-  border: 6px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  object-fit: cover;
+#p1-right{
+  top:200px;
+  right:-40px;
+  width:280px;
+  height:380px;
+  border-radius:160px;
 }
 
-/* ============================= */
-/* FIRST PAGE PHOTOS (LOWER + BIGGER) */
-/* ============================= */
+/* SECOND PAGE IMAGES – SLIGHTLY ABOVE */
 
-#photo1 {
-  top: 150px;      /* moved lower */
-  left: 60px;
-  width: 260px;
-  height: 340px;
-  border-radius: 140px;
+#p2-left{
+  top:40px;
+  left:-30px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
 }
 
-#photo2 {
-  top: 150px;      /* moved lower */
-  right: 60px;
-  width: 260px;
-  height: 340px;
-  border-radius: 140px;
+#p2-right{
+  top:40px;
+  right:-30px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
 }
 
-/* ============================= */
-/* SECOND PAGE PHOTOS (SLIGHTLY HIGHER) */
-/* ============================= */
+/* THIRD PAGE IMAGES – LARGER + VERTICAL */
 
-#photo3 {
-  top: 30px;       /* moved slightly up */
-  left: 70px;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
+#p3-left{
+  top:120px;
+  left:-30px;
+  width:260px;
+  height:340px;
+  border-radius:150px;
 }
 
-#photo4 {
-  top: 30px;       /* moved slightly up */
-  right: 70px;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
+#p3-right{
+  top:120px;
+  right:-30px;
+  width:260px;
+  height:340px;
+  border-radius:150px;
 }
 
-/* ============================= */
-/* THIRD PAGE PHOTOS (BIGGER BUT SAFE) */
-/* ============================= */
+/* Love Options */
 
-#photo5 {
-  top: 90px;
-  left: 90px;
-  width: 230px;     /* slightly bigger */
-  height: 260px;    /* slightly longer */
-  border-radius: 120px;
+.option{
+  display:inline-block;
+  padding:16px;
+  margin:12px;
+  border-radius:25px;
+  background:white;
+  width:220px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-#photo6 {
-  top: 90px;
-  right: 90px;
-  width: 230px;     /* slightly bigger */
-  height: 260px;    /* slightly longer */
-  border-radius: 120px;
+.correct{background:#8aff8a!important;}
+.wrong{background:#ff8a8a!important;}
+
+input{
+  padding:14px;
+  border-radius:14px;
+  border:none;
+  font-size:16px;
+  margin-top:10px;
 }
 
-.option {
-  display: inline-block;
-  padding: 16px;
-  margin: 12px;
-  border-radius: 25px;
-  background: white;
-  cursor: pointer;
-  width: 220px;
-  transition: 0.3s;
-  font-weight: 600;
+/* Heart cursor */
+
+.heart{
+  position:absolute;
+  pointer-events:none;
+  animation:fade 0.6s linear;
 }
 
-.correct { background: #8aff8a !important; }
-.wrong { background: #ff8a8a !important; }
-
-input {
-  padding: 14px;
-  border-radius: 15px;
-  border: none;
-  margin: 10px;
-  font-size: 16px;
-}
-
-/* HEART CURSOR */
-.heart {
-  position: absolute;
-  pointer-events: none;
-  animation: fade 0.6s linear;
-}
-
-@keyframes fade {
-  to { opacity: 0; transform: translateY(-20px); }
+@keyframes fade{
+  to{opacity:0;transform:translateY(-20px);}
 }
 
 </style>
@@ -183,67 +172,81 @@ input {
 
 <!-- FIRST PAGE -->
 <section>
-  <img src="viraj.jpg.JPG" class="photo" id="photo1">
-  <img src="diya.jpg.JPG" class="photo" id="photo2">
+<div class="section-content">
 
-  <h1>Congratulations Viraj Trehan 💘</h1>
-  <h2>You have been selected as my Valentine.</h2>
-  <p>There is no unsubscribe button.</p>
+<img src="viraj.jpg.JPG" class="photo" id="p1-left">
+<img src="diya.jpg.JPG" class="photo" id="p1-right">
 
-  <button id="decline">Decline ❌</button>
-  <button onclick="document.getElementById('loveSection').scrollIntoView({behavior:'smooth'})">
-    Accept Your Fate ✅
-  </button>
+<h1>Congratulations Viraj Trehan 💘</h1>
+<h2>You have been selected as my Valentine.</h2>
+<p>There is no unsubscribe button.</p>
+
+<button id="decline">Decline ❌</button>
+<button onclick="document.getElementById('love').scrollIntoView({behavior:'smooth'})">
+Accept Your Fate ✅
+</button>
+
+</div>
 </section>
 
 <!-- SECOND PAGE -->
-<section id="loveSection">
-  <img src="gang.jpg.png" class="photo" id="photo3">
-  <img src="new.jpg.png" class="photo" id="photo4">
+<section id="love">
+<div class="section-content">
 
-  <h2>Pick 5 Things I Love About You 💖</h2>
-  <p>(Choose wisely. I’m watching.)</p>
+<img src="gang.jpg.png" class="photo" id="p2-left">
+<img src="new.jpg.png" class="photo" id="p2-right">
 
-  <div id="options"></div>
-  <h3 id="result"></h3>
+<h2>Pick 5 Things I Love About You 💖</h2>
+<p>(Choose wisely. I’m watching.)</p>
+
+<div id="options"></div>
+<h3 id="result"></h3>
+
+</div>
 </section>
 
 <!-- THIRD PAGE -->
 <section>
-  <img src="him.png.JPG" class="photo" id="photo5">
-  <img src="us.jpg.JPG" class="photo" id="photo6">
+<div class="section-content">
 
-  <h2>Climb To My Heart 💕</h2>
-  <div id="game"></div>
-  <h3 id="finalMessage"></h3>
+<img src="him.png.JPG" class="photo" id="p3-left">
+<img src="us.jpg.JPG" class="photo" id="p3-right">
+
+<h2>Climb To My Heart 💕</h2>
+<div id="game"></div>
+<h3 id="finalMessage"></h3>
+
+</div>
 </section>
 
 <script>
 
-/* Decline Button Move */
-const decline = document.getElementById("decline");
-decline.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 120);
-  const y = Math.random() * (window.innerHeight - 60);
-  decline.style.position = "absolute";
-  decline.style.left = x + "px";
-  decline.style.top = y + "px";
+/* Decline restricted to first section */
+const decline=document.getElementById("decline");
+decline.addEventListener("mouseover",()=>{
+  const container=document.querySelector("section .section-content");
+  const rect=container.getBoundingClientRect();
+  const x=Math.random()*(rect.width-120);
+  const y=Math.random()*(rect.height-60);
+  decline.style.position="absolute";
+  decline.style.left=x+"px";
+  decline.style.top=y+"px";
 });
 
-/* Heart Cursor */
-document.addEventListener("mousemove", function(e) {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💗";
-  heart.style.left = e.pageX + "px";
-  heart.style.top = e.pageY + "px";
+/* Heart cursor */
+document.addEventListener("mousemove",function(e){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💗";
+  heart.style.left=e.pageX+"px";
+  heart.style.top=e.pageY+"px";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 600);
+  setTimeout(()=>heart.remove(),600);
 });
 
-/* Love Options + Game (unchanged) */
+/* LOVE OPTIONS (unchanged logic) */
 
-const correctAnswers = [
+const correctAnswers=[
 "The way he smiles",
 "His biceps",
 "How understanding he is (even with my drama)",
@@ -251,7 +254,7 @@ const correctAnswers = [
 "His laugh and voice"
 ];
 
-const options = [
+const options=[
 "His biceps","His smart movie decisions","His competitive Word Hunt energy",
 "His dedication to the gym life","His fantasy league 'expert' advice",
 "His sleeping pattern","His healthy eating era","The way he smiles",
@@ -262,70 +265,78 @@ const options = [
 "How understanding he is (even with my drama)","His unstoppable charm"
 ];
 
-let selectedCorrect = 0;
+let selectedCorrect=0;
 
-options.forEach(text => {
-  const div = document.createElement("div");
-  div.className = "option";
-  div.innerText = text;
-  div.onclick = function() {
-    if (correctAnswers.includes(text)) {
+options.forEach(text=>{
+  const div=document.createElement("div");
+  div.className="option";
+  div.innerText=text;
+  div.onclick=function(){
+    if(correctAnswers.includes(text)){
       div.classList.add("correct");
       selectedCorrect++;
-    } else {
+    }else{
       div.classList.add("wrong");
     }
-    div.onclick = null;
-    if (selectedCorrect === 5) {
-      document.getElementById("result").innerText =
+    div.onclick=null;
+    if(selectedCorrect===5){
+      document.getElementById("result").innerText=
       "You know exactly why I'm obsessed with you 💘";
     }
   };
   document.getElementById("options").appendChild(div);
 });
 
-const levels = [
-{hint:"The first movie we watched together", answer:"SPIDERMAN"},
-{hint:"Our favorite game to compete in", answer:"WORDHUNT"},
-{hint:"Our favorite place to eat", answer:"DELHICLUBHOUSE"},
-{hint:"The person because of whom we met", answer:"SAHIRA"},
-{hint:"Our relationship book", answer:"PHILSOSOPHY"}
+/* PROGRESSIVE CLIMB GAME */
+
+const levels=[
+{hint:"The first movie we watched together",answer:"SPIDERMAN"},
+{hint:"Our favorite game to compete in",answer:"WORDHUNT"},
+{hint:"Our favorite place to eat",answer:"DELHICLUBHOUSE"},
+{hint:"The person because of whom we met",answer:"SAHIRA"},
+{hint:"Our relationship book",answer:"PHILSOSOPHY"}
 ];
 
-let currentLevel = 0;
+let currentLevel=0;
 
-function loadLevel() {
-  if (currentLevel >= levels.length) {
-    document.getElementById("finalMessage").innerText =
+function addLevel(){
+  if(currentLevel>=levels.length){
+    document.getElementById("finalMessage").innerText=
     "You've officially climbed into my heart 💗";
     return;
   }
 
-  const gameDiv = document.getElementById("game");
-  gameDiv.innerHTML = "";
+  const game=document.getElementById("game");
 
-  const p = document.createElement("p");
-  p.innerText = levels[currentLevel].hint;
+  const container=document.createElement("div");
+  container.style.marginBottom="30px";
 
-  const input = document.createElement("input");
-  const btn = document.createElement("button");
-  btn.innerText = "Submit";
+  const p=document.createElement("p");
+  p.innerText=levels[currentLevel].hint;
 
-  btn.onclick = function() {
-    if (input.value.toUpperCase().replace(/\s/g,'') === levels[currentLevel].answer) {
+  const input=document.createElement("input");
+
+  const btn=document.createElement("button");
+  btn.innerText="Submit";
+
+  btn.onclick=function(){
+    if(input.value.toUpperCase().replace(/\s/g,'')===levels[currentLevel].answer){
+      btn.disabled=true;
+      input.disabled=true;
       currentLevel++;
-      loadLevel();
-    } else {
+      addLevel();
+    }else{
       alert("WRONG. Try again, lover boy.");
     }
   };
 
-  gameDiv.appendChild(p);
-  gameDiv.appendChild(input);
-  gameDiv.appendChild(btn);
+  container.appendChild(p);
+  container.appendChild(input);
+  container.appendChild(btn);
+  game.appendChild(container);
 }
 
-loadLevel();
+addLevel();
 
 </script>
 
