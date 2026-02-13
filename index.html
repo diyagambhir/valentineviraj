@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Viraju's Valentine 💘</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to bottom right, #ffb6d9, #ffcce6);
+  overflow-x: hidden;
+  text-align: center;
+}
+
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  position: relative;
+}
+
+h1, h2 {
+  color: #d63384;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px;
+  background-color: #ff4da6;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff1a8c;
+}
+
+#decline {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.option {
+  display: inline-block;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  width: 200px;
+  transition: 0.3s;
+}
+
+.correct {
+  background: #8aff8a !important;
+}
+
+.wrong {
+  background: #ff8a8a !important;
+}
+
+.photo {
+  position: absolute;
+  width: 180px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#photo1 { top: 50px; left: 30px; transform: rotate(-10deg); }
+#photo2 { top: 120px; right: 30px; transform: rotate(10deg); }
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+.heart {
+  position: absolute;
+  pointer-events: none;
+  animation: fade 0.6s linear;
+}
+
+@keyframes fade {
+  to { opacity: 0; transform: translateY(-20px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO SECTION -->
+<section>
+  <img src="him.jpg" class="photo" id="photo1">
+  <img src="us.jpg" class="photo" id="photo2">
+
+  <h1>Congratulations Viraju 💘</h1>
+  <h2>You have been selected as my Valentine.</h2>
+  <p>There is no unsubscribe button.</p>
+
+  <button id="decline">Decline ❌</button>
+  <button onclick="document.getElementById('loveSection').scrollIntoView({behavior:'smooth'})">
+    Accept Your Fate ✅
+  </button>
+</section>
+
+<!-- HEXAGRAM SECTION -->
+<section id="loveSection">
+  <h2>Pick 5 Things I Love About You 💖</h2>
+  <p>(Choose wisely. I’m watching.)</p>
+
+  <div id="options"></div>
+  <h3 id="result"></h3>
+</section>
+
+<!-- GAME SECTION -->
+<section>
+  <h2>Climb To My Heart 💕</h2>
+
+  <div id="game"></div>
+  <h3 id="finalMessage"></h3>
+</section>
+
+<script>
+// Moving Decline Button
+const decline = document.getElementById("decline");
+decline.addEventListener("mouseover", () => {
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  decline.style.position = "absolute";
+  decline.style.left = x + "px";
+  decline.style.top = y + "px";
+});
+
+// Heart Cursor Trail
+document.addEventListener("mousemove", function(e) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = e.pageX + "px";
+  heart.style.top = e.pageY + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 600);
+});
+
+// Love Options
+const correctAnswers = [
+"The way he smiles",
+"His biceps",
+"How understanding he is (even with my drama)",
+"His soft upper cheeks I can't stop kissing",
+"His laugh and voice"
+];
+
+const options = [
+"The way he smiles",
+"His biceps",
+"How understanding he is (even with my drama)",
+"His soft upper cheeks I can't stop kissing",
+"His laugh and voice",
+"His chaotic movie decisions",
+"His competitive Word Hunt energy",
+"His dedication to the gym life",
+"His fantasy league 'expert' advice",
+"His elite nap schedule",
+"His healthy eating era",
+"His dramatic smirk",
+"His daily compliments",
+"His surprise gift moments",
+"His fashion experiments",
+"His 'I must text you right now' urgency",
+"His mysterious distance from me",
+"His snack stealing habits",
+"His random philosophical speeches",
+"His unstoppable charm"
+];
+
+let selectedCorrect = 0;
+
+options.forEach(text => {
+  const div = document.createElement("div");
+  div.className = "option";
+  div.innerText = text;
+  div.onclick = function() {
+    if (correctAnswers.includes(text)) {
+      div.classList.add("correct");
+      selectedCorrect++;
+    } else {
+      div.classList.add("wrong");
+    }
+    div.onclick = null;
+    if (selectedCorrect === 5) {
+      document.getElementById("result").innerText =
+      "You know exactly why I'm obsessed with you 💘";
+    }
+  };
+  document.getElementById("options").appendChild(div);
+});
+
+// Cross Climb Game
+const levels = [
+{hint:"The first movie we watched together", answer:"SPIDERMAN"},
+{hint:"Our favorite game to compete in", answer:"WORDHUNT"},
+{hint:"Our favorite place to eat", answer:"DELHICLUBHOUSE"},
+{hint:"The reason we met", answer:"SAHIRA"},
+{hint:"Our relationship book", answer:"PHILOSOPHY"}
+];
+
+let currentLevel = 0;
+
+function loadLevel() {
+  if (currentLevel >= levels.length) {
+    document.getElementById("finalMessage").innerText =
+    "You've officially climbed into my heart 💗";
+    return;
+  }
+
+  const gameDiv = document.getElementById("game");
+  gameDiv.innerHTML = "";
+
+  const p = document.createElement("p");
+  p.innerText = levels[currentLevel].hint;
+  const input = document.createElement("input");
+  const btn = document.createElement("button");
+  btn.innerText = "Submit";
+
+  btn.onclick = function() {
+    if (input.value.toUpperCase().replace(/\s/g,'') === levels[currentLevel].answer) {
+      currentLevel++;
+      loadLevel();
+    } else {
+      alert("WRONG. Try again, lover boy.");
+    }
+  };
+
+  gameDiv.appendChild(p);
+  gameDiv.appendChild(input);
+  gameDiv.appendChild(btn);
+}
+
+loadLevel();
+</script>
+
+</body>
+</html>
