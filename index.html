@@ -42,8 +42,7 @@ p {
   font-size: 20px;
 }
 
-}
-
+/* Buttons */
 button {
   padding: 12px 25px;
   font-size: 18px;
@@ -98,6 +97,10 @@ button:hover {
 #photo1 { top: 50px; left: 30px; transform: rotate(-10deg); }
 #photo2 { top: 120px; right: 30px; transform: rotate(10deg); }
 
+/* Added positioning for new photos */
+#photo3 { top: 60px; left: 40px; transform: rotate(-8deg); }
+#photo4 { top: 120px; right: 40px; transform: rotate(8deg); }
+
 input {
   padding: 10px;
   border-radius: 10px;
@@ -114,6 +117,7 @@ input {
 @keyframes fade {
   to { opacity: 0; transform: translateY(-20px); }
 }
+
 </style>
 </head>
 
@@ -135,12 +139,10 @@ input {
 </section>
 
 <!-- HEXAGRAM SECTION -->
-
-<section>
-  <img src="her.jpg.JPG" class="photo" id="photo1">
-  <img src="cute.jpg.JPG" class="photo" id="photo2">
-  
 <section id="loveSection">
+  <img src="her.jpg.JPG" class="photo" id="photo3">
+  <img src="cute.jpg.JPG" class="photo" id="photo4">
+
   <h2>Pick 5 Things I Love About You 💖</h2>
   <p>(Choose wisely. I’m watching.)</p>
 
@@ -278,3 +280,4 @@ loadLevel();
 
 </body>
 </html>
+
