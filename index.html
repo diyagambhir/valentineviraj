@@ -42,9 +42,10 @@ p {
   font-size: 20px;
 }
 
-/* Buttons */
+}
+
 button {
-  padding: 14px 30px;
+  padding: 12px 25px;
   font-size: 18px;
   border: none;
   border-radius: 30px;
@@ -53,35 +54,29 @@ button {
   background-color: #ff4da6;
   color: white;
   transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 button:hover {
   background-color: #ff1a8c;
-  transform: scale(1.08);
 }
 
-/* Moving Decline Button */
 #decline {
   position: relative;
 }
 
-/* Love Options */
+.hidden {
+  display: none;
+}
+
 .option {
   display: inline-block;
-  padding: 18px;
-  margin: 12px;
+  padding: 15px;
+  margin: 10px;
   border-radius: 20px;
   background: white;
   cursor: pointer;
-  width: 220px;
+  width: 200px;
   transition: 0.3s;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-  font-weight: 600;
-}
-
-.option:hover {
-  transform: scale(1.05);
 }
 
 .correct {
@@ -92,33 +87,24 @@ button:hover {
   background: #ff8a8a !important;
 }
 
-/* Photos */
 .photo {
   position: absolute;
-  width: 200px;
-  border-radius: 25px;
-  border: 6px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  transition: 0.4s;
+  width: 180px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-.photo:hover {
-  transform: scale(1.1) rotate(3deg);
-}
+#photo1 { top: 50px; left: 30px; transform: rotate(-10deg); }
+#photo2 { top: 120px; right: 30px; transform: rotate(10deg); }
 
-#photo1 { top: 60px; left: 40px; transform: rotate(-8deg); }
-#photo2 { top: 160px; right: 40px; transform: rotate(8deg); }
-
-/* Input */
 input {
-  padding: 12px;
-  border-radius: 12px;
+  padding: 10px;
+  border-radius: 10px;
   border: none;
   margin: 10px;
-  font-size: 16px;
 }
 
-/* Heart Cursor Trail */
 .heart {
   position: absolute;
   pointer-events: none;
@@ -128,32 +114,10 @@ input {
 @keyframes fade {
   to { opacity: 0; transform: translateY(-20px); }
 }
-
-/* Floating Background Hearts */
-.floating-heart {
-  position: fixed;
-  bottom: -20px;
-  font-size: 22px;
-  animation: floatUp 8s linear infinite;
-  opacity: 0.5;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-110vh); }
-}
-
 </style>
 </head>
 
 <body>
-
-<!-- Floating Background Hearts -->
-<div class="floating-heart" style="left:10%">💗</div>
-<div class="floating-heart" style="left:30%; animation-delay:2s;">💖</div>
-<div class="floating-heart" style="left:50%; animation-delay:4s;">💘</div>
-<div class="floating-heart" style="left:70%; animation-delay:1s;">💕</div>
-<div class="floating-heart" style="left:90%; animation-delay:3s;">💞</div>
 
 <!-- INTRO SECTION -->
 <section>
@@ -188,18 +152,17 @@ input {
 </section>
 
 <script>
-
-/* Moving Decline Button */
+// Moving Decline Button
 const decline = document.getElementById("decline");
 decline.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
   decline.style.position = "absolute";
   decline.style.left = x + "px";
   decline.style.top = y + "px";
 });
 
-/* Heart Cursor Trail */
+// Heart Cursor Trail
 document.addEventListener("mousemove", function(e) {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -210,7 +173,7 @@ document.addEventListener("mousemove", function(e) {
   setTimeout(() => heart.remove(), 600);
 });
 
-/* Love Options */
+// Love Options
 const correctAnswers = [
 "The way he smiles",
 "His biceps",
@@ -264,7 +227,7 @@ options.forEach(text => {
   document.getElementById("options").appendChild(div);
 });
 
-/* Cross Climb Game */
+// Cross Climb Game
 const levels = [
 {hint:"The first movie we watched together", answer:"SPIDERMAN"},
 {hint:"Our favorite game to compete in", answer:"WORDHUNT"},
@@ -287,9 +250,7 @@ function loadLevel() {
 
   const p = document.createElement("p");
   p.innerText = levels[currentLevel].hint;
-
   const input = document.createElement("input");
-
   const btn = document.createElement("button");
   btn.innerText = "Submit";
 
@@ -308,7 +269,6 @@ function loadLevel() {
 }
 
 loadLevel();
-
 </script>
 
 </body>
